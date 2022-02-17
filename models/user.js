@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const UserSchema = new mongoose.Schema({
     name:{
@@ -17,8 +19,8 @@ const UserSchema = new mongoose.Schema({
     type: {
         type:String,
         required:[true, "Type is required"],
-        enum:["Junior Dev", "Dev", "Admin"],
-        default:"Junior Dev"
+        enum:["user","junior dev", "dev", "admin"],
+        default:"User"
     },
     password: {
         type: String,
@@ -62,4 +64,4 @@ UserSchema.methods.securityCheck = async function(securityQuestion, securityAnsw
     return false;
 }
 
-module.exports = mongoose.Model('User',UserSchema)
+module.exports = mongoose.model('User',UserSchema)
