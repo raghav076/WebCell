@@ -36,10 +36,6 @@ const login = async(req, res) => {
     res.status(StatusCodes.OK).json({user:{name:user.name, type:user.type}, token});
 }
 
-/**
- * Dev password : 7his_is_very_secure_passw0rd
- */
-
 const securityLogin = async(req, res) => {
     const {name, security_question, security_answer} = req.body;
     if(!name || !security_question || !security_answer) {
