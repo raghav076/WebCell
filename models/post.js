@@ -11,6 +11,11 @@ const PostSchema = new mongoose.Schema({
         required:[true, 'Description is required'],
         maxLength:50,
     },
+    post_id:{
+        type:Number,
+        required:[true,'Post id not given'],
+        unique:true
+    },
     status: {
         type:String,
         enum:['accepted', 'declined', 'pending'],
@@ -21,7 +26,7 @@ const PostSchema = new mongoose.Schema({
         ref:'User',
         required:[true, 'User is required'],
     }
-},{timestamps:true})
+},{timestamps:true});
 
 
 module.exports = mongoose.model('Post', PostSchema);

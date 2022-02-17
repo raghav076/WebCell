@@ -1,0 +1,24 @@
+<%- include('components/header'); -%>
+<div class="container">
+        <div class="card-body">
+            <form class="post-form">
+                <h3>Post a Request</h3>
+                <div class="form-group">
+                    <label for="exampleInputTitle">Title</label>
+                    <input type="text" class="form-control name-input" placeholder="Enter title for your request" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDescription1">Description</label>
+                    <textarea class="form-control description-input" id="exampleInputDescription1" placeholder="Enter your request"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="SecretCode">Secret Code</label>
+                    <input type="text" class="form-control secret-input" placeholder="Enter the Secret Code" />
+                </div>
+                <button style="margin: 20px;" type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-alert"></div>
+            </form>
+        </div>
+</div>
+<script src="./create-post.js"></script>
+<%- include('components/footer'); -%>

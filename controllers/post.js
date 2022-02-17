@@ -24,8 +24,7 @@ const getPost = async (req, res) => {
   } = req
 
   const post = await Post.findOne({
-    post_id: PostId,
-    createdBy: userId,
+    post_id: PostId
   })
   if (!post) {
     throw new NotFoundError(`No Post with id ${PostId}`)
@@ -110,22 +109,6 @@ const adminAcceptPost = async (req, res) => {
     res.status(StatusCodes.OK).json({post: post, Flag: process.env.POST_ACCEPT_FLAG})
 }
 
-const adminCreatePost = async (req, res) => {
-    if(req.user.type != 'admin') {
-        throw new UnauthenticatedError("Only admins can accept a post request");
-    }
-
-    req.body.createdBy = req.user.userId
-    const {name, description, createdBy} = req.body
-    if(!name || !description ) {
-        throw new BadRequestError('Name and Description cannot be empty')
-    }
-    // as we have no delete option this would work.
-    const tempPost = {name, description, createdBy, post_id:Post.find({}).length }
-    const post = await Post.create({...tempPost})
-    res.status(StatusCodes.CREATED).json({ post, Flag: process.env.POST_CREATE_FLAG })
-}
-
 const adminRejectPost = async (req, res) => {
     const { params: {id:PostId}} = req
 
@@ -152,7 +135,6 @@ module.exports = {
   adminAcceptPost,
   adminRejectPost,
   adminGetAllPosts,
-  adminCreatePost,
   getAllPosts,
   updatePost,
   getPost,

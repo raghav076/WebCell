@@ -29,9 +29,14 @@ const UserSchema = new mongoose.Schema({
     },
     security_question: {
         type:String,
-        enum:['What is the name of your first pet?', 'In what city were you born?', 'What was your favorite food?'],
+        enum:['What is the name of your first pet?', 
+        'In what city were you born?', 
+        'What is your favorite food?'],
     },
     security_answer: {
+        type:String,
+    },
+    links:{
         type:String,
     }
 }, {timestamps:true});

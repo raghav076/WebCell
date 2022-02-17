@@ -1,0 +1,44 @@
+<%- include('components/header'); -%>
+<style>
+    .light-blue-gradient {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    }
+
+    .card {
+        margin-top: 3em;
+        text-align: center;
+        height: 15em;
+    }
+
+    .card-body {
+        border: none;
+        background-color: rgb(227, 235, 235);
+    }
+
+    div.card-body {
+        padding: 0;
+    }
+
+    .card-title {
+        border-radius: 0.125em;
+        padding: 0.6em 0em;
+        background-color: rgb(228, 204, 204);
+    }
+
+    .card {
+        margin-top: 70px;
+    }
+
+    .navbar-brand {
+        padding-left: 2em;
+    }
+
+</style>
+<div class="container">
+<div class="row row-cols-1 posts-container">
+    <p class="loading-text">Loading...</p>
+    <div class="posts"></div>
+</div>
+</div>
+<script src="./adminposts.js"></script>
+<%- include('components/footer'); -%>

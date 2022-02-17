@@ -1,0 +1,31 @@
+<%- include('components/header'); -%>
+<style>
+    .light-blue-gradient {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    }
+    
+    .card {
+        margin-top: 1em;
+        text-align: center;
+        height: 25em;
+    }
+    
+    .container {
+        margin-top: 70px;
+    }
+
+    .navbar-brand {
+        padding-left: 2em;
+    }
+</style>
+<div class="container">
+    <div class="row row-cols-2 row-cols-md-2">
+        <% if (user) { %>
+            <h1>Welcome, <%= user.name %></h1>
+        <% } else { %>
+            <h1>Welcome user, login to continue</h1>
+        <% } %>
+    </div>
+</div>
+
+<%- include('components/footer'); -%>

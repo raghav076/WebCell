@@ -1,0 +1,46 @@
+<%- include('components/header'); -%>
+<style>
+    .light-blue-gradient {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    }
+
+    .card {
+        margin-top: 1em;
+        text-align: center;
+        height: 25em;
+    }
+
+    .container {
+        margin-top: 70px;
+    }
+
+    .navbar-brand {
+        padding-left: 2em;
+    }
+
+    .card-title {
+        font-size: 1.5em;
+    }
+
+    .card-body {
+        background-color: white;
+    }
+
+    .card-text {
+        margin-top: 2em;
+        font-size: 1.1em;
+    }
+
+    .card-footer {
+        border: 0.1px solid rgb(206, 200, 200);
+        font-size: 1.2em;
+    }
+
+</style>
+<div class="container">
+    <p class="loading-text">Loading...</p>
+    <div class="row row-cols-2 row-cols-md-2 developers">
+    </div>
+</div>
+<script src="./developers.js"></script>
+<%- include('components/footer'); -%>
