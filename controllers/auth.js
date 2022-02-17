@@ -37,11 +37,11 @@ const login = async(req, res) => {
 }
 
 const securityLogin = async(req, res) => {
-    const {name, security_question, security_answer} = req.body;
-    if(!name || !security_question || !security_answer) {
+    const {name: username, security_question, security_answer} = req.body;
+    if(!username || !security_question || !security_answer) {
         throw new BadRequestError('Username, Security Question and Answer');
     }
-    const user = await User.findOne({name})
+    const user = await User.findOne({name: username})
 
     if(!user) {
         throw new UnauthenticatedError('User does not exist');
