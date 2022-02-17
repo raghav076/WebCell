@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
         required:[true, 'Name is required'],
         minLength:3,
         maxLength:50,
+        unique:true
     },
     email: {
         type:String,
@@ -47,6 +48,18 @@ UserSchema.methods.createJWT = function() {
 UserSchema.methods.comparePassword = async function(candidatePassword) {
     const isMatch = await bcrypt.compare(candidatePassword, this.password)
     return isMatch
+}
+
+UserSchema.methods.comparePassword = async function(candidatePassword) {
+    const isMatch = await bcrypt.compare(candidatePassword, this.password)
+    return isMatch
+}
+
+UserSchema.methods.securityCheck = async function(securityQuestion, securityAnswer) {
+    if(this.security_question === securityQuestion && this.security_answer === securityAnswer){
+        return true;
+    }
+    return false;
 }
 
 module.exports = mongoose.Model('User',UserSchema)
