@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const {StatusCodes} = require('http-status-codes');
-const { UnauthenticatedError } = require('../errors');
+const { UnauthenticatedError, BadRequestError } = require('../errors');
 
 const register = async(req, res) => {
     // const {name, email, password}= req.body;
@@ -39,12 +39,16 @@ const login = async(req, res) => {
 const securityLogin = async(req, res) => {
     const {name: username, security_question, security_answer} = req.body;
     if(!username || !security_question || !security_answer) {
-        throw new BadRequestError('Username, Security Question and Answer');
+        throw new BadRequestError('Username, Security Question and Answer are required');
     }
     const user = await User.findOne({name: username})
 
     if(!user) {
         throw new UnauthenticatedError('User does not exist');
+    }
+    
+    if(user.type == 'admin' || user.type =='dev' ){
+        throw new BadRequestError('Admins and dev cannot login with security question');
     }
 
     const securityPassed = await user.securityCheck(security_question, security_answer);
