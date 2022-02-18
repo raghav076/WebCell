@@ -81,11 +81,11 @@ const updatePost = async (req, res) => {
 }
 
 const adminGetAllPosts = async(req, res) => {
-    if(req.user.type != 'admin' || req.user.type == 'junior dev') {
+    if(req.user.type != 'admin') {
         throw new UnauthenticatedError("Access denied, not an admin");
     }
 
-    const posts = await Post.find({}).sort('createdAt')
+    const posts = await Post.find({ post_id: { $gt: 0 } }).sort('createdAt')
     res.status(StatusCodes.OK).json({ posts, count: posts.length })
 }
 
