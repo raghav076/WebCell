@@ -85,7 +85,7 @@ const adminGetAllPosts = async(req, res) => {
         throw new UnauthenticatedError("Access denied, not an admin");
     }
 
-    const posts = await Post.find({ status: 'pending' }).sort('createdAt')
+    const posts = await Post.find({}).sort('createdAt')
     res.status(StatusCodes.OK).json({ posts, count: posts.length })
 }
 

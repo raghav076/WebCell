@@ -20,17 +20,9 @@ const infoRouter = require('./routes/users')
 
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
-const { application } = require('express');
 
 
 app.set('view engine', 'ejs');
-
-
-app.use(rateLimiter({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
-}));
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('public'))
