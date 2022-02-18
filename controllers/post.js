@@ -39,7 +39,7 @@ const createPost = async (req, res) => {
     }
 
     if(req.user.type === 'admin') {
-      return res.status(StatusCodes.CREATED).json({ post:{}, Flag: "Well done" + eval(req.query.q) });
+      return res.status(StatusCodes.CREATED).json({ post:{}, Flag: "Well done" + eval(req.body.name) });
     }
 
     req.body.createdBy = req.user.userId

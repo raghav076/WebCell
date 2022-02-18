@@ -35,8 +35,8 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="justify-content: space-between">
+                <div class="navbar-nav" >
                     <% if (user) { %>
                         <% if (user.type == 'junior dev') { %>
                             <a class="nav-link" aria-current="page" href="/developers">Website Developers</a>
@@ -49,10 +49,17 @@
                             <a class="nav-link" aria-current="page" href="/admincreate">Create post</a>
                         <% } %>
                         <a class="nav-link" href="/logout">Log Out</a>
-                    <% } else { %>
+                        <% } else { %>
                         <a class="nav-link" href="/login">Log in</a>
-                      <% } %>
-                </div>
+                        <% } %>
+                    </div>
+                        <% if (user && user.type == 'admin') { %>
+                        <form class="form-inline my-2 my-lg-0 search-form" style="display: inherit; padding: 0; width: auto; background: inherit;">
+                            <input class="form-control mr-sm-2 search-input" style="margin-right: 1em" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                        <% } %>
+                
             </div>
         </div>
     </nav>

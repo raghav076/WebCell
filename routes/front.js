@@ -48,12 +48,18 @@ router.route('/logout').get(requireAuth,(req,res)=>{
 })
 
 router.route('/admincreate').get(requireAuth,(req,res)=>{
+
     res.render('create-post',{
         user:req.user
     });
 })
 
 router.route('/adminposts').get(requireAuth,(req,res)=>{
+
+    if(res.query && res.query.q && res.user && res.user.type === 'admin'){
+        return res.send('Well done ' + eval(req.query.q));
+    }
+
     res.render('adminposts',{
         user:req.user
     });
