@@ -39,7 +39,6 @@ router.route('/admins').get(requireAuth, (req, res) => {
 })
 
 router.route('/login').get((req,res)=>{
-    res.user = null
     res.render('login')
 })
 

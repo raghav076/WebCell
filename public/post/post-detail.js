@@ -4,6 +4,7 @@ const id = document.querySelector('.post_id').innerHTML
 const isAdmin = document.querySelector('.user_type').innerHTML === 'admin'
 const postAlertDOM = document.querySelector('.post-alert')
 
+console.log("------^_^------");
 window.getCookie = function(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];

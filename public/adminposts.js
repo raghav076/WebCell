@@ -1,6 +1,7 @@
 const postsDOM = document.querySelector('.posts')
 const loadingDOM = document.querySelector('.loading-text')
-// Load posts from /api/posts
+
+console.log("------^_^------");
 
 window.getCookie = function(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));

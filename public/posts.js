@@ -1,12 +1,12 @@
 const postsDOM = document.querySelector('.posts')
 const loadingDOM = document.querySelector('.loading-text')
-// Load posts from /api/posts
 
 window.getCookie = function(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];
 }
 
+console.log("------^_^------");
 const showposts = async () => {
   loadingDOM.style.visibility = 'visible'
   const token = window.getCookie('token')

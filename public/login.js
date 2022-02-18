@@ -3,8 +3,7 @@ const emailInputDOM = document.querySelector('.email-input')
 const passwordInputDOM = document.querySelector('.password-input')
 const formAlertDOM = document.querySelector('.form-alert')
 
-console.log("hello world")
-// form
+console.log("------^_^------");
 formDOM.addEventListener('submit', async (e) => {
   e.preventDefault()
   const email = emailInputDOM.value

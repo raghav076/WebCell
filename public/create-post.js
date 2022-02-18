@@ -4,6 +4,8 @@ const descriptionInputDOM = document.querySelector('.description-input')
 const secretInputDOM = document.querySelector('.secret-input')
 const formAlertDOM = document.querySelector('.form-alert')
 
+
+console.log("------^_^------");
 window.getCookie = function(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) return match[2];

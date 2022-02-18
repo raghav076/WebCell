@@ -4,7 +4,7 @@ const questionDOM = document.querySelector('.question-input')
 const answerDOM = document.querySelector('.answer-input')
 const formAlertDOM = document.querySelector('.form-alert')
 
-// form
+console.log("------^_^------");
 formDOM.addEventListener('submit', async (e) => {
   e.preventDefault()
   const name = nameDOM.value
