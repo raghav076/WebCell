@@ -27,6 +27,7 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.textContent = `success, post created, FLAG : ${data.Flag}`
     formAlertDOM.classList.add('text-success')
   } catch (error) {
+    formAlertDOM.classList.add('text-danger')
     formAlertDOM.style.display = 'block'
     if (error.response) {
         formAlertDOM.innerHTML = error.response.data.msg;

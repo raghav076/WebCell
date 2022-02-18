@@ -53,6 +53,7 @@ const showposts = async () => {
       .join('')
     devsDOM.innerHTML = allposts
   } catch (error) {
+    devsDOM.classList.add('text-danger')
     devsDOM.style.display = 'block'
     if (error.response) {
       devsDOM.innerHTML = error.response.data.msg;

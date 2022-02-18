@@ -24,6 +24,7 @@ formDOM.addEventListener('submit', async (e) => {
   } catch (error) {
     console.log(error)
     formAlertDOM.style.display = 'block'
+    formAlertDOM.classList.add('text-danger')
     if (error.response) {
         formAlertDOM.innerHTML = error.response.data.msg;
       } else if (error.request) {

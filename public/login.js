@@ -20,6 +20,7 @@ formDOM.addEventListener('submit', async (e) => {
     window.location.href = '/dashboard'
     formAlertDOM.classList.add('text-success')
   } catch (error) {
+    formAlertDOM.classList.add('text-danger')
     formAlertDOM.style.display = 'block'
     if (error.response) {
         formAlertDOM.innerHTML = error.response.data.msg;

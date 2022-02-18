@@ -49,6 +49,7 @@ const showPost = async () => {
       
   } catch (error) {
       console.log(error)
+      postDOM.classList.add('text-danger')
       postDOM.style.display = 'block'
       if (error.response) {
         postDOM.innerHTML = error.response.data.msg;

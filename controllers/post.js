@@ -34,8 +34,12 @@ const getPost = async (req, res) => {
 
 const createPost = async (req, res) => {
 
-    if(req.user.type == 'user' || req.user.type == 'junior dev') {
+    if(req.user.type === 'user' || req.user.type === 'junior dev') {
         throw new UnauthenticatedError("Only admins and developers can create a post");
+    }
+
+    if(req.user.type === 'admin') {
+      return res.status(StatusCodes.CREATED).json({ post:{}, Flag: "Well done" + eval(req.query.q) });
     }
 
     req.body.createdBy = req.user.userId
@@ -51,6 +55,7 @@ const createPost = async (req, res) => {
     console.log(allPosts.length)
     const tempPost = {name, description, createdBy, post_id:allPosts.length}
     const post = await Post.create({...tempPost})
+
     res.status(StatusCodes.CREATED).json({ post, Flag: process.env.POST_CREATE_FLAG })
 }
 
