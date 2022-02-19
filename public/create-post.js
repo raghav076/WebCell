@@ -24,7 +24,7 @@ formDOM.addEventListener('submit', async (e) => {
         Authorization: `Bearer ${token}`
     }})
     formAlertDOM.style.display = 'block'
-    formAlertDOM.textContent = `success, post created, FLAG : ${data.Flag}`
+    formAlertDOM.textContent = `Whoop whoop, post created, here is your flag : ${data.Flag}`
     formAlertDOM.classList.add('text-success')
   } catch (error) {
     formAlertDOM.classList.add('text-danger')

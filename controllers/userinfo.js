@@ -12,7 +12,7 @@ const getAdmins = async (req, res) => {
 
 const getDevs = async (req, res) => {
     if(req.user.type == 'user') {
-        throw new UnauthenticatedError("Only developers can get admins");
+        throw new UnauthenticatedError("Users cant get devs");
     }
   const devs = await User.find({ type: 'dev' }).select('name links')
   res.status(StatusCodes.OK).json({ devs, count: devs.length })

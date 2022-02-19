@@ -11,7 +11,6 @@ formDOM.addEventListener('submit', async (e) => {
 
   try {
     const {data} = await axios.post('/api/v1/auth/login', { email, password })
-    console.log(data)
     document.cookie = `token=${data.token}`;
     emailInputDOM.value = ''
     passwordInputDOM.value = ''

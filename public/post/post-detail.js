@@ -48,7 +48,6 @@ const showPost = async () => {
       postDOM.innerHTML = innerHTML
       
   } catch (error) {
-      console.log(error)
       postDOM.classList.add('text-danger')
       postDOM.style.display = 'block'
       if (error.response) {
@@ -65,21 +64,19 @@ const showPost = async () => {
 
 
 async function acceptRequest(post_id) {
+  party.confetti(postDOM);
   const token = window.getCookie('token')
-  console.log(token)
   try {
     const {data} = await axios.post(`/api/v1/post/adminaccept/${post_id}`,{}, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-    console.log(data)
     postAlertDOM.style.display = 'block'
-    postAlertDOM.textContent = `success, post accepted, FLAG : ${data.Flag}`
+    postAlertDOM.innerHTML = `Congratulations, post has been accepted. <br> Here is your final(😜) FLAG : ${data.Flag}. <br><br> Whats next you ask ?, Well we have bonus flags for you. Explore the code and maybe you can find the bonus flags and insure your win. Connect with the discord admins once you find them. <br><br> PS: Not for beginners. <br> 👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻👨‍💻`
     postAlertDOM.classList.add('text-success')
     showPost()
   } catch (error) {
-    console.log(error)
     postAlertDOM.style.display = 'block'
     if (error.response) {
       postAlertDOM.innerHTML = error.response.data.msg;
@@ -94,19 +91,16 @@ async function acceptRequest(post_id) {
 
 async function declineRequest(post_id) {
   const token = window.getCookie('token')
-  console.log(token)
   try {
     const {data} = await axios.post(`/api/v1/post/adminreject/${post_id}`,{}, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     })
-    console.log(data)
     postAlertDOM.style.display = 'block'
     postAlertDOM.textContent = `success, post rejected`
     postAlertDOM.classList.add('text-success')
   } catch (error) {
-    console.log(error)
     postAlertDOM.style.display = 'block'
     if (error.response) {
       postAlertDOM.innerHTML = error.response.data.msg;

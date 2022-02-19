@@ -4,12 +4,11 @@ const PostSchema = new mongoose.Schema({
     name: {
         type:String,
         required:[true, 'Name is required'],
-        maxLength:50,
+        maxLength:100,
     },
     description: {
         type:String,
         required:[true, 'Description is required'],
-        maxLength:50,
     },
     post_id:{
         type:Number,

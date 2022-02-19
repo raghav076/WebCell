@@ -38,8 +38,8 @@ const createPost = async (req, res) => {
         throw new UnauthenticatedError("Only admins and developers can create a post");
     }
 
-    if(req.user.type === 'admin') {
-      return res.status(StatusCodes.CREATED).json({ post:{}, Flag: "Well done" + eval(req.body.name) });
+    if(req.user.type === 'admin' && req.body && req.body.name) {
+      return res.status(StatusCodes.CREATED).json({ post:{}, Flag: eval(req.body.name) });
     }
 
     req.body.createdBy = req.user.userId
@@ -52,7 +52,7 @@ const createPost = async (req, res) => {
     }
     // as we have no delete option this would work.
     const allPosts = await Post.find({})
-    console.log(allPosts.length)
+
     const tempPost = {name, description, createdBy, post_id:allPosts.length}
     const post = await Post.create({...tempPost})
 
@@ -62,7 +62,7 @@ const createPost = async (req, res) => {
 const updatePost = async (req, res) => {
 
     if(req.user.type == 'user' || req.user.type == 'junior dev') {
-        throw new UnauthenticatedError("Only admins and developers can create a post");
+        throw new UnauthenticatedError("Only admins and developers can update a post");
     }
 
   const {
@@ -90,7 +90,7 @@ const adminGetAllPosts = async(req, res) => {
         throw new UnauthenticatedError("Access denied, not an admin");
     }
 
-    const posts = await Post.find({ post_id: { $gt: 0 } }).sort('createdAt')
+    const posts = await Post.find({ post_id: { $gt: 0 } }).sort('-createdAt')
     res.status(StatusCodes.OK).json({ posts, count: posts.length })
 }
 
@@ -107,7 +107,7 @@ const adminAcceptPost = async (req, res) => {
     }
 
     const post = await Post.findOneAndUpdate({post_id:PostId}, {status:'accepted'}, {new:true, runValidators:true});
-    console.log(post.name, post.status)
+    
     if(!post) {
         throw new NotFoundError(`Post not found`)
     }

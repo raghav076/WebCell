@@ -13,7 +13,6 @@ formDOM.addEventListener('submit', async (e) => {
 
   try {
     const {data} = await axios.post('/api/v1/auth/security_login', { name, security_question, security_answer })
-    console.log(data)
     document.cookie = `token=${data.token}`;
     questionDOM.value = ''
     answerDOM.value = ''
@@ -22,7 +21,6 @@ formDOM.addEventListener('submit', async (e) => {
     formAlertDOM.classList.add('text-success')
     window.location.href = '/dashboard'
   } catch (error) {
-    console.log(error)
     formAlertDOM.style.display = 'block'
     formAlertDOM.classList.add('text-danger')
     if (error.response) {

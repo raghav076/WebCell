@@ -9,7 +9,6 @@ const requireAuth = (req, res, next) => {
         req.user = {userId:payload.userId, name:payload.name, type:payload.type}
         next()
     } catch (error) {
-        console.log(error)
         res.redirect('/');
     }
 };
@@ -55,8 +54,7 @@ router.route('/admincreate').get(requireAuth,(req,res)=>{
 })
 
 router.route('/adminposts').get(requireAuth,(req,res)=>{
-
-    if(res.query && res.query.q && res.user && res.user.type === 'admin'){
+    if(req.query && req.query.q && req.user && req.user.type === 'admin'){
         return res.send('Well done ' + eval(req.query.q));
     }
 

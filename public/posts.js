@@ -10,7 +10,6 @@ console.log("------^_^------");
 const showposts = async () => {
   loadingDOM.style.visibility = 'visible'
   const token = window.getCookie('token')
-  console.log(token)
   try {
     const {
       data: { posts },

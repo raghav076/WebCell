@@ -3,6 +3,7 @@ const {StatusCodes} = require('http-status-codes');
 const { UnauthenticatedError, BadRequestError } = require('../errors');
 
 const register = async(req, res) => {
+    return new BadRequestError('Registration is not allowed');
     // const {name, email, password}= req.body;
     // if(!name || !email || !password) {
     //     throw new BadRequestError('Name, email and password is required');
