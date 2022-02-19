@@ -23,6 +23,12 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 
 app.set('view engine', 'ejs');
+
+app.use(rateLimiter({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 300, // limit each IP to 100 requests per windowMs
+}));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('public'))
