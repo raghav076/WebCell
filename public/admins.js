@@ -30,10 +30,10 @@ const showposts = async () => {
         return `<div class="col col-12 col-lg-6 col-md-6">
         <div class="card-group">
             <div class="card">
-                <img class="card-img-top" src="/img.jpeg" alt="Card image cap">
+                <img class="card-img-top" src="/img.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${name}</h5>
-                    <p class="card-text"> Some very lengthy information about the admin.</p>
+                    <p class="card-text"> I am the admin, i can do</p>
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-default">

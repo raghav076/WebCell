@@ -30,7 +30,7 @@ const showposts = async () => {
         return `<div class="col col-12 col-lg-3 col-md-6">
         <div class="card-group">
           <div class="card">
-            <img class="bd-placeholder-img card-img-top" src="/img.jpeg" alt="Card image cap" width="100%" xmlns="http://www.w3.org/2000/svg"
+            <img class="bd-placeholder-img card-img-top" src="/img.png" alt="Card image cap" width="100%" xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
             <div class="card-body">
               <h5 class="card-title">${name}</h5>
