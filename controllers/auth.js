@@ -42,7 +42,7 @@ const securityLogin = async(req, res) => {
     if(!username || !security_question || !security_answer) {
         throw new BadRequestError('Username, Security Question and Answer are required');
     }
-    const user = await User.findOne({name: username})
+    const user = await User.findOne({name: username.toLowerCase()})
 
     if(!user) {
         throw new UnauthenticatedError('User does not exist');
