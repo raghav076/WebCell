@@ -35,7 +35,7 @@ const showposts = async () => {
             <div class="card-body">
               <h5 class="card-title">${name}</h5>
             </div>
-            <div class="card-footer">
+            <div class="card-footer" hidden>
               <button class="btn btn-default">
                 <a href="${links}">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" class="bi bi-github"

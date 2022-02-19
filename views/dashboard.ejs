@@ -18,14 +18,14 @@
         padding-left: 2em;
     }
 </style>
-<div class="container">
-    <div class="row row-cols-2 row-cols-md-2">
+<div class="container" style="flex-direction: column;">
         <% if (user) { %>
             <h1>Welcome, <%= user.name %></h1>
         <% } else { %>
-            <h1>Welcome user, login to continue</h1>
+            <h1>Welcome user</h1>
+            <br>
+            <div style="color:white;"><h1>U0VDVEZ7aDFkZDNuXzFuX3BsNDFuXzUxZ2g3fQ==</h1></div>
         <% } %>
-    </div>
 </div>
 
 <%- include('components/footer'); -%>
